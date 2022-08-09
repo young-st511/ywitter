@@ -7,9 +7,9 @@ import { auth } from '../fBase';
 const Profile = () => {
   const handleLogOutClick = () => {
     signOut(auth);
-    return <Navigate replace to='/' />
-  }
-  
+    return <Navigate replace to='/' />;
+  };
+
   return (
     <div>
       <Navigation />

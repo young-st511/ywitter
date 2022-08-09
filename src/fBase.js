@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/src/componentssetup#available-libraries
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -12,6 +11,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
 };
 
-initializeApp(firebaseConfig);
-export const auth = getAuth();
+export const fApp = initializeApp(firebaseConfig);
+
+export const auth = getAuth(fApp);
+export const db = getFirestore(fApp);
 export const createUser = createUserWithEmailAndPassword;
