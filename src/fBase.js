@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -11,8 +12,9 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
 };
 
-export const fApp = initializeApp(firebaseConfig);
+const fApp = initializeApp(firebaseConfig);
 
 export const auth = getAuth(fApp);
 export const db = getFirestore(fApp);
+export const storage = getStorage(fApp);
 export const createUser = createUserWithEmailAndPassword;
