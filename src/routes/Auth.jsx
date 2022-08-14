@@ -27,7 +27,6 @@ const Auth = () => {
     }
 
     const data = await signInWithPopup(auth, provider);
-    //! Test
     console.log(data);
   };
 
@@ -49,16 +48,18 @@ const Auth = () => {
       let data = 'a';
       if (newAccount) {
         // create account
+        console.log(email, password);
         data = await createUser(auth, email, password);
       } else {
         //Log in
+        console.log(email, password);
         data = await signInWithEmailAndPassword(auth, email, password);
       }
-      //! Test
       console.log(data);
     } catch (error) {
       setError(error.message);
-      console.log(error);
+      console.log({ ...error });
+      console.log(error.customData);
     }
   };
 
