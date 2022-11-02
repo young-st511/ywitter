@@ -14,7 +14,8 @@ const Yweet = ({ yweet, isOwner }) => {
     if (ok) {
       //delete
       await deleteDoc(doc(db, `yweets/${yweet.id}`));
-      await deleteObject(ref(storage, yweet.attachmentURL));
+      yweet.attachmentURL &&
+        (await deleteObject(ref(storage, yweet.attachmentURL)));
     }
   };
 

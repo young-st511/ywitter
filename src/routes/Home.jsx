@@ -66,7 +66,6 @@ const Home = ({ userObj }) => {
   };
 
   const onFileChange = (e) => {
-    // console.log(e.target.files);
     const {
       target: { files },
     } = e;
@@ -88,7 +87,7 @@ const Home = ({ userObj }) => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation userObj={userObj} />
       <form onSubmit={onSubmit}>
         <input
           value={yweet}
@@ -108,7 +107,7 @@ const Home = ({ userObj }) => {
       </form>
       {sending && <div>Sending...</div>}
 
-      <div className='nweets'>
+      <div className='yweets'>
         {isLoading ? (
           <h2>Loading Yweets...</h2>
         ) : yweets.length ? (
